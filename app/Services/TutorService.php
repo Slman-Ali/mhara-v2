@@ -15,5 +15,8 @@ class TutorService{
         return Tutor::all()->count();
     }
     
-    
+    public function getTutorsCountInCity(int $cityId){
+        return Tutor::where('city' , '=' , $cityId)->get()->count();
+    }
+
 }

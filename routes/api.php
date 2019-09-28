@@ -17,13 +17,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// return number of registered tutors
 Route::get('tutors-count', 'API\TutorController@count');
 
-// return number of registered institute
 Route::get('institutes-count', 'API\InstituteController@count');
 
-// return number of registered students
 Route::get('students-count', 'API\StudentController@count');
 
+Route::get('users-count', 'API\HomeController@countAll');
 
+Route::get('cities-names-with-tutors-count', 'API\HomeController@getCitiesWithTutorsCount');

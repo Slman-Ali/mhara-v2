@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
             // MailsSeeder::class,
             ReviewParametersSeeder::class,
             CitiesSeeder::class,
-            // CoursesSeeder::class
-            
+            CoursesSeeder::class,
+            GenderSeeder::class
         ]);
     }
 }

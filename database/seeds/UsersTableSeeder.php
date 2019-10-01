@@ -50,11 +50,12 @@ class UsersTableSeeder extends Seeder
                     'city' => random_int(1,14),
                     'address' => "Lorem ipsum dolor sit amet",
                     'establishment_year' => random_int(1990,2021),
-                    'available_days' => random_int(0,1),
-                    'available_time' => random_int(0,1),
+                    'available_time' => random_int(1,5),
+                    'available_days' => "0111111",
                     'facebook' => Str::random(10),
                     'registered_in_mhara_program' => random_int(0,1),
-                    'user_id' => $user->id
+                    'user_id' => $user->id,
+                    'priority_by_admin' => rand(0,1) 
                 ];
                 Institute::create($data);
             }
@@ -68,11 +69,12 @@ class UsersTableSeeder extends Seeder
                     'image' => 'tutor-default.jpg',
                     'city' => random_int(1,14),
                     'address' => "Lorem ipsum dolor sit amet",
-                    'birth_date' => date('Y-m-d'),
+                    'birth_date' => randomDateInRange(new DateTime('1970-05-06'),new DateTime('1998-05-06')),
                     'gender' => random_int(0,1),
                     'tagline' => Str::random(50),
                     'facebook' => Str::random(10),
-                    'user_id' => $user->id
+                    'user_id' => $user->id,
+                    'priority_by_admin' => rand(0,1) 
                 ];
                 Tutor::create($data);
             }
@@ -86,7 +88,7 @@ class UsersTableSeeder extends Seeder
                     'image' => 'student-default.jpg',
                     'city' => random_int(1,14),
                     'birth_date' => date('Y-m-d'),
-                    'gender' => random_int(0,1),
+                    'gender' => random_int(1,2),
                     'facebook' => Str::random(10),
                     'user_id' => $user->id
                 ];

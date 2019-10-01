@@ -37,6 +37,7 @@ class CreateInstituteCoursesTable extends Migration
             $table->date('finish_date')->nullable();
             $table->integer('hours')->nullable();
 
+
             $table->bigInteger('user_id');
             $table->timestamps();
         });

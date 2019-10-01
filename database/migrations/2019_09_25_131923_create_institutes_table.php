@@ -37,6 +37,8 @@ class CreateInstitutesTable extends Migration
             $table->double('stars_num',null,2)->default(0);
             $table->integer('num_of_reviews')->default(0);
             
+            $table->integer('priority_by_admin')->unsigned()->default(0);
+            
             $table->bigInteger('user_id');
             $table->timestamps();
         });

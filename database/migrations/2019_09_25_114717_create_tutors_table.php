@@ -32,14 +32,16 @@ class CreateTutorsTable extends Migration
             $table->integer('gender')->nullable();
             $table->string('tagline')->nullable();
             
-            $table->string('available_days',7)->default("0000000");
-            $table->integer('availabel_time')->nullable();
+            $table->string('available_days',7)->default("0111111");
+            $table->integer('available_time')->nullable();
             
             $table->string('facebook')->nullable();
             $table->string('whatsapp')->nullable();
             $table->bigInteger('profile_visitors')->default(0);
             $table->double('stars_num',null,2)->default(0);
             $table->integer('num_of_reviews')->default(0);
+
+            $table->integer('priority_by_admin')->default(0);
             
             
             $table->bigInteger('user_id');

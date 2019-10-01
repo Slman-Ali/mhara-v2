@@ -98,4 +98,10 @@ class InstituteController extends Controller
         $institutesCount = $this->instituteService->getCount();
         return response()->json($institutesCount, 200);
     }
+
+    
+    public function getFeaturedInstitutes(int $limit = 3){
+        return $this->instituteService->getFeaturedInstitutes($limit);
+    }
+
 }

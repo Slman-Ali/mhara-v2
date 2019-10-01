@@ -100,4 +100,9 @@ class TutorController extends Controller
         $tutorsCount = $this->tutorService->getCount();
         return response()->json($tutorsCount, 200);
     }
+
+    
+    public function getFeaturedTutors(int $limit = 3){
+        return $this->tutorService->getFeaturedTutors($limit);
+    }
 }

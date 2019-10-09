@@ -7,6 +7,7 @@ use App\models\Institute;
 use App\models\Student;
 use App\models\Tutor;
 use Illuminate\Support\Facades\DB;
+use Faker\Generator as Faker;
 
 class UsersTableSeeder extends Seeder
 {
@@ -23,8 +24,11 @@ class UsersTableSeeder extends Seeder
         "tutor" ,
         "institute"
     ];
-    public function run(){
-        for($i = 0; $i<100;++$i){
+    public function run(Faker $faker){
+
+        // $faker = new Faker();
+
+        for($i = 0; $i<700;++$i){
             $typo = $this->types[ random_int(0,5) ];
             $namo = $this->generate_name_of_type($typo."s");
             $typo = 2;
@@ -42,17 +46,17 @@ class UsersTableSeeder extends Seeder
                 $table= "institutes";
                 $data=[
                     'name' => $namo,
-                    'tagline' => Str::random(10),
-                    'website' => Str::random(10),
-                    'mobile' => Str::random(10),
+                    'tagline' => $faker->text(26),
+                    'website' => $faker->url,
+                    'mobile' => $faker->phoneNumber,
                     'image' => 'institute-default.jpg', 
-                    'phone' => Str::random(10),
+                    'phone' => $faker->phoneNumber,
                     'city' => random_int(1,14),
-                    'address' => "Lorem ipsum dolor sit amet",
+                    'address' => $faker->text(25),
                     'establishment_year' => random_int(1990,2021),
                     'available_time' => random_int(1,5),
                     'available_days' => "0111111",
-                    'facebook' => Str::random(10),
+                    'facebook' => $faker->url,
                     'registered_in_mhara_program' => random_int(0,1),
                     'user_id' => $user->id,
                     'priority_by_admin' => rand(0,1) 
@@ -64,17 +68,18 @@ class UsersTableSeeder extends Seeder
                 
                 $data=[        
                     'first_name' => $namo,
-                    'last_name' => Str::random(10),
-                    'mobile' => Str::random(10),
+                    'last_name' => $faker->lastName,
+                    'mobile' => $faker->phoneNumber,
                     'image' => 'tutor-default.jpg',
                     'city' => random_int(1,14),
-                    'address' => "Lorem ipsum dolor sit amet",
+                    'address' => $faker->text(25),
                     'birth_date' => randomDateInRange(new DateTime('1970-05-06'),new DateTime('1998-05-06')),
-                    'gender' => random_int(0,1),
-                    'tagline' => Str::random(50),
-                    'facebook' => Str::random(10),
+                    'gender' => random_int(1,2),
+                    'available_time' => random_int(1,5),
+                    'tagline' => $faker->text(30),
+                    'facebook' => $faker->url,
                     'user_id' => $user->id,
-                    'priority_by_admin' => rand(0,1) 
+                    'priority_by_admin' => rand(0,3) 
                 ];
                 Tutor::create($data);
             }
@@ -83,13 +88,13 @@ class UsersTableSeeder extends Seeder
                 
                 $data=[
                     'first_name' => $namo,
-                    'last_name' => Str::random(10),
-                    'mobile' => Str::random(10),
+                    'last_name' => $faker->lastName,
+                    'mobile' => $faker->phoneNumber,
                     'image' => 'student-default.jpg',
                     'city' => random_int(1,14),
-                    'birth_date' => date('Y-m-d'),
+                    'birth_date' => $faker->dateTimeBetween(),
                     'gender' => random_int(1,2),
-                    'facebook' => Str::random(10),
+                    'facebook' => $faker->url,
                     'user_id' => $user->id
                 ];
                 Student::create($data);

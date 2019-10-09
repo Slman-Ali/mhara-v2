@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             ReviewParametersSeeder::class,
             CitiesSeeder::class,
             CoursesSeeder::class,
-            GenderSeeder::class
+            GenderSeeder::class,
+            AvailableTimeSeeder::class
         ]);
     }
 }

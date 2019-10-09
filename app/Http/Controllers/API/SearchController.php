@@ -16,9 +16,15 @@ class SearchController extends Controller
         $this->searchService = $searchService;
     }
 
-    public function search(Request $request){
-        $data = $this->searchService->search($request);
+    public function searchTutor(Request $request){
+        $data = $this->searchService->searchTutor($request);
 
-        return response()->json($data, 200);
+        return $data;
+    }
+
+    public function searchInstitute(Request $request){
+        $data = $this->searchService->searchInstitute($request);
+
+        return $data;
     }
 }
